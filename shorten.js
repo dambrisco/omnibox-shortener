@@ -22,6 +22,7 @@ function handleResponse(json) {
   input.value = json.id
   input.onclick = function(e) {
     e.preventDefault()
+    e.stopPropagation()
     input.select()
     var success = document.execCommand('copy')
     if (success) {
