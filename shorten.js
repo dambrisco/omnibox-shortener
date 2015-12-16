@@ -18,15 +18,18 @@ function fetchShortUrl(link, f) {
 }
 
 function handleResponse(json) {
-  var input = document.getElementById('shortened')
-  input.value = json.id
-  input.onclick = function(e) {
+  function targeted(e) {
     e.preventDefault()
     var success = document.execCommand('copy')
     if (success) {
       console.log('URL copied successfully')
     }
   }
+
+  var input = document.getElementById('shortened')
+  input.value = json.id
+  input.onfocus = targeted
+  input.onclick = targeted
 }
 
 fetchShortUrl(location.hash.substring(1), handleResponse)
