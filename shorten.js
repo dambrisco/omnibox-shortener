@@ -19,7 +19,7 @@ function fetchShortUrl(link, f) {
 
 function handleResponse(json) {
   var input = document.getElementById('shortened')
-  input.appendChild(document.createTextNode(json.id))
+  input.value = json.id
   input.onclick = function(e) {
     e.preventDefault()
     input.select()
