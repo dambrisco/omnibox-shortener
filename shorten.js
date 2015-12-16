@@ -1,7 +1,7 @@
 function fetchShortUrl(link, f) {
   var xhr = new XMLHttpRequest()
   xhr.onreadystatechange = function() {
-    if (xhr.readState !== XMLHttpRequest.DONE) {
+    if (xhr.readyState !== XMLHttpRequest.DONE) {
       return
     } else if (xhr.status !== 200) {
       console.log(JSON.parse(xhr.responseText))
