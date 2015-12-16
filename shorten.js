@@ -30,8 +30,8 @@ function handleResponse(json) {
   }
 
   input.value = json.id
-  input.onfocus = targeted
   input.onclick = targeted
+  input.onkeyup = targeted
 }
 
 fetchShortUrl(location.hash.substring(1), handleResponse)
