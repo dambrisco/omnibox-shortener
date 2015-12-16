@@ -1,11 +1,3 @@
-fetchShortUrl(location.hash.substring(1), handleResponse)
-
-if ('onhashchange' in window) {
-  window.onhashchange = function() {
-    fetchShortUrl(window.location.hash.substring(1), handleResponse)
-  }
-}
-
 function fetchShortUrl(link, f) {
   var xhr = new XMLHttpRequest()
   xhr.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDeb9haS85aHJGbaYclga6qxwI1kEb-Q44')
@@ -37,4 +29,12 @@ function handleResponse(json) {
     }
   }
   input.dispatchEvent(new MouseEvent('click', { 'view': window, 'bubbles': true, 'cancelable': false }))
+}
+
+fetchShortUrl(location.hash.substring(1), handleResponse)
+
+if ('onhashchange' in window) {
+  window.onhashchange = function() {
+    fetchShortUrl(window.location.hash.substring(1), handleResponse)
+  }
 }
