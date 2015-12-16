@@ -1,8 +1,5 @@
 function fetchShortUrl(link, f) {
   var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDeb9haS85aHJGbaYclga6qxwI1kEb-Q44')
-  xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.send(JSON.stringify({'longUrl': link}))
   xhr.onreadystatechange = function() {
     if (xhr.readState !== XMLHttpRequest.DONE) {
       return
@@ -15,6 +12,9 @@ function fetchShortUrl(link, f) {
       f(json)
     }
   }
+  xhr.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDeb9haS85aHJGbaYclga6qxwI1kEb-Q44')
+  xhr.setRequestHeader('Content-Type', 'application/json')
+  xhr.send(JSON.stringify({'longUrl': link}))
 }
 
 function handleResponse(json) {
