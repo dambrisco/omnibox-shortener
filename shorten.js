@@ -18,15 +18,17 @@ function fetchShortUrl(link, f) {
 }
 
 function handleResponse(json) {
+  var input = document.getElementById('shortened')
+
   function targeted(e) {
     e.preventDefault()
+    input.select()
     var success = document.execCommand('copy')
     if (success) {
       console.log('URL copied successfully')
     }
   }
 
-  var input = document.getElementById('shortened')
   input.value = json.id
   input.onfocus = targeted
   input.onclick = targeted
