@@ -22,14 +22,11 @@ function handleResponse(json) {
   input.value = json.id
   input.onclick = function(e) {
     e.preventDefault()
-    e.stopPropagation()
-    input.select()
     var success = document.execCommand('copy')
     if (success) {
       console.log('URL copied successfully')
     }
   }
-  input.dispatchEvent(new MouseEvent('click', { 'view': window, 'bubbles': true, 'cancelable': false }))
 }
 
 fetchShortUrl(location.hash.substring(1), handleResponse)
